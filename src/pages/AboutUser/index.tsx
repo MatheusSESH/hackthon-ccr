@@ -6,18 +6,20 @@ import { PersonData,
   SocialNetworks,
   Interests,
   Langueges,
-  AboutDataContainer
+  AboutDataContainer,
+  Body,
+  AboutUserImgArea
 } from './styles';
 
 import api from '../../services/api';
 
-interface InterestDTO {
+interface Interest {
   id: number;
   nome: string;
 }
 
 const AboutUser: React.FC = () => {
-  const [userInterests, setInterests] = useState<InterestDTO[]>([]);
+  const [userInterests, setInterests] = useState<Interest[]>([]);
 
   useEffect(() => {
     async function handleUserData() {
@@ -33,53 +35,62 @@ const AboutUser: React.FC = () => {
 
   return (
     <>
-      <AboutDataContainer>
-        <PersonData >
-          <strong>Dados Pessoais</strong>
-            <p>Idade:</p>
-            <p>Gênero:</p>
-            <p>Nacionalidade:</p>
-            <p>Autodeclaração:</p>
-            <p>Estado Civil:</p>
-            <p>Possui Filhos:</p>
-        </PersonData>
+      <Body>
+        <AboutUserImgArea>
+          <div>
+            <img src="" alt="Gabriel Souza"/>
+            <strong>Gabriel Souza</strong>
+            <p>18, Belford Roxo, RJ</p>
+          </div>
+        </AboutUserImgArea>
+        <AboutDataContainer>
+          <PersonData >
+            <strong>Dados Pessoais</strong>
+              <p>Idade:</p>
+              <p>Gênero:</p>
+              <p>Nacionalidade:</p>
+              <p>Autodeclaração:</p>
+              <p>Estado Civil:</p>
+              <p>Possui Filhos:</p>
+          </PersonData>
 
-        <PersonAdress>
-          <strong>Endereço</strong>
-            <p>Alameda Andreia</p>
-        </PersonAdress>
+          <PersonAdress>
+            <strong>Endereço</strong>
+              <p>Alameda Andreia</p>
+          </PersonAdress>
 
-        <AcademicTraining>
-          <strong>Formação Acadêmica</strong>
-            <p>Ensino médio completo</p>
-            <p>Intituto Duque de Caxias</p>
-        </AcademicTraining>
+          <AcademicTraining>
+            <strong>Formação Acadêmica</strong>
+              <p>Ensino médio completo</p>
+              <p>Intituto Duque de Caxias</p>
+          </AcademicTraining>
 
-        <SocialNetworks>
-          <strong>Redes Sociais</strong>
-            <p>LinkedIn:</p>
-            <p>Instagram:</p>
-            <p>Facebook:</p>
-        </SocialNetworks>
+          <SocialNetworks>
+            <strong>Redes Sociais</strong>
+              <p>LinkedIn:</p>
+              <p>Instagram:</p>
+              <p>Facebook:</p>
+          </SocialNetworks>
 
-        <Interests>
-          <strong>Interesses</strong>
+          <Interests>
+            <strong>Interesses</strong>
 
-            {userInterests.map(interests => {
-              return(
-                <p>{interests.nome}</p>
-              )
-            })}
+              {userInterests.map(interests => {
+                return(
+                  <p>{interests.nome}</p>
+                )
+              })}
 
-        </Interests>
+          </Interests>
 
-        <Langueges>
-          <strong>Idiomas</strong>
-            <p>Ingles:</p>
-            <p>Espanhol:</p>
-            <p>Português:</p>
-        </Langueges>
-      </AboutDataContainer>
+          <Langueges>
+            <strong>Idiomas</strong>
+              <p>Ingles:</p>
+              <p>Espanhol:</p>
+              <p>Português:</p>
+          </Langueges>
+        </AboutDataContainer>
+      </Body>
     </>
   );
 }
