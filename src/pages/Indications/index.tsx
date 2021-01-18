@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // import api from '../../services/api';
 
@@ -9,8 +9,6 @@ import profile2 from '../../assets/second-indication.png';
 
 
 const Indications: React.FC = () => {
-  const [indications, setIndications] = useState([]);
-
   return (
     <>
       <Body>

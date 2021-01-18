@@ -6,7 +6,6 @@ import { RobotStyle, RobotAreaContent, RobotContainer } from './styles';
 
 import TopNavigatorRobotPage from '../../components/TopNavigatorRobotPage';
 import api from '../../services/api';
-import { FaLessThanEqual } from 'react-icons/fa';
 
 interface Marker {
   value: number;
@@ -19,19 +18,11 @@ interface AlternativesDTO {
   pergunta: string;
 }
 
-interface Result {
-  tipo: string;
-  resultado: string;
-}
-
 const Robot: React.FC = () => {
   const [questions, setQuestions] = useState<AlternativesDTO[]>([]);
-  const [answers, setAnswers] = useState< number | number[]>();
   const [nextQuestion, setNextQuestion] = useState<number>(1);
-  const [userResult, setUserResult] = useState<number>(69);
-  const [result, setResult] = useState<Result[]>([])
   const [showResult, setshowResult] = useState<Boolean>(true)
-  const [mark, setMarks] = useState<Marker[]>([
+  const mark: Marker[] = [
     {
       value: 1,
       label: '1',
@@ -51,7 +42,7 @@ const Robot: React.FC = () => {
       value: 5,
       label: '5',
     },
-  ]);
+  ];
 
   function valuetext(value: number) {
     return `${value}`;
@@ -67,18 +58,8 @@ const Robot: React.FC = () => {
     handleAlternatives();
   },[]);
 
-  useEffect(() => {
-    async function handleResultBot() {
-      const response = await api.get(`/pessoa/resultado-teste-vocacional/${userResult}`);
-
-      setResult(response.data);
-    }
-
-    handleResultBot();
-  },[]);
-
   function handleGetAnswers(event: React.ChangeEvent<{}>, value: number | number[]){
-    setAnswers(value);
+    console.log(value);
   }
 
   function handleNextQuestion(){
