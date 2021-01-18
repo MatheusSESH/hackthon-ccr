@@ -6,42 +6,47 @@ interface HeaderProps {
 
 export const Container = styled.div`
    height: 100vh;
-   min-height: 90rem;
+   width: 100%;
+   
    display: flex;
    flex-direction: column;
    align-items: center;
+
 `;
+
 export const Header = styled.div<HeaderProps>`
-   margin-top: 5rem;
+   max-width: 960px;
+   margin: 0 auto;
+   padding: 40px 20px;
+   margin-top: 50px;
+   margin-bottom: 10px; 
+
    display: flex;
    justify-content: space-between;
    align-items: center;
-   width: 90%;
+
    div {
       display: flex;
       justify-content: center;
       align-items: center;
-      svg {
-         font-size: 3rem;
-         &:hover {
-            cursor: pointer;
+
+         & + div {
+            margin-left: 20px;
          }
       }
-      & + div {
-         margin-left: 1.5rem;
-      }
-      img {
-         margin: 0 2rem 0 3rem;
-      }
-   }
+   
    button {
-      font: 500 2rem Roboto;
+      font: 700 24px Roboto ;
       text-decoration: none;
       color: #d9481c ;
+      border: none; 
+      background: #fffcff;
+
       &:hover {
          cursor: pointer;
       }
    }
+
    ${(props) => props.windowActive === 'dashboard'
       && css`
          .dashboard{
@@ -51,43 +56,44 @@ export const Header = styled.div<HeaderProps>`
             content: '';
             background: #d9481c;
             width: auto;
-            height: 0.4rem;
+            height: 6px;
             display: flex;
             flex-direction: column;
-            border-top-left-radius: 0.4rem;
-            border-radius: 0.4rem;
+            border-top-left-radius: 6px;
+            border-radius: 6px;
          }
       `}
-   ${(props) => props.windowActive === 'board'
+   ${(props) => props.windowActive === 'indications'
       && css`
-         .board{
-            color: #d9481c;
+         .indications{
+            color: #438989;
          }
-         .board:after {
+         .indications:after {
             content: '';
-            background: #d9481c;
+            background: #438989;
             width: auto;
-            height: 0.4rem;
+            height: 6px;
             display: flex;
             flex-direction: column;
-            border-top-left-radius: 0.4rem;
-            border-radius: 0.4rem;
+            border-top-left-radius: 6px;
+            border-radius: 6px;
          }
       `}
    ${(props) => props.windowActive === 'about'
       && css`
          .about{
-            color: #d9481c;
+            color: #f5bc00;
+            background: #fffcff;
          }
          .about:after {
             content: '';
-            background: #d9481c;
+            background: #f5bc00;
             width: auto;
-            height: 0.4rem;
+            height: 6px;
             display: flex;
             flex-direction: column;
-            border-top-left-radius: 0.4rem;
-            border-radius: 0.4rem;
+            border-top-left-radius: 6px;
+            border-radius: 6px;
          }
       `}
 `;

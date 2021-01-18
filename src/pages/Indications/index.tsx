@@ -1,30 +1,57 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
 
-import api from '../../services/api';
+// import api from '../../services/api';
 
-import { Indicates } from './styles';
+import { Indicates, Body, IndicatesContainer } from './styles';
+
+import profile1 from '../../assets/first-indication.png';
+import profile2 from '../../assets/second-indication.png';
+
 
 const Indications: React.FC = () => {
   const [indications, setIndications] = useState([]);
 
-  async function handleAddIndication(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const response = await api.get('')
-
-  }
-
   return (
     <>
-      <Indicates>
-        <a href='teste'>
-          <img src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" alt="profile"/>
-          <div>
-            <strong>SOLANGE COSTA</strong>
-            <p className="description">PROFESSORA - IF DUQUE DE CAXIAS</p>
-          </div>
-            <p className="text">Aluno dedicadom criativo e proativo</p>
-        </a>
-      </Indicates>
+      <Body>
+        <IndicatesContainer>
+          <Indicates>
+            <div className="CardContent" >
+              <div className="header">
+                <img src={profile1} alt="profile"/>
+                <div className="header-description">
+                  <strong>SOLANGE COSTA</strong>
+                  <p>PROFESSORA - IF DUQUE DE CAXIAS</p>
+                </div>
+              </div>
+              <div className="text">
+                <p>Aluno dedicado, criativo e proativo. Sempre ajudou
+                  com o uso do projetor.Excelente trabalho no projeto de extenção e pesquisa
+                </p>
+              </div>
+            </div>
+            </Indicates>
+            <Indicates>
+            <div className="CardContent" >
+              <div className="header">
+                <img src={profile2} alt="profile"/>
+                <div className="header-description">
+                  <strong>SOLANGE COSTA</strong>
+                  <p>PROFESSORA - IF DUQUE DE CAXIAS</p>
+                </div>
+              </div>
+              <div className="text">
+                <p>Cooperativo, sempre ajudava os colegas e os motivava para 
+                  alcançar os melhores resultados</p>
+              </div>
+            </div>
+          </Indicates>
+
+          <button>
+            
+          </button>
+        </IndicatesContainer>
+      </Body>
     </>
   );
 };

@@ -13,6 +13,8 @@ import { PersonData,
 
 import api from '../../services/api';
 
+import Profile from '../../assets/gabriel-souza.png';
+
 interface Interest {
   id: number;
   nome: string;
@@ -20,14 +22,13 @@ interface Interest {
 
 const AboutUser: React.FC = () => {
   const [userInterests, setInterests] = useState<Interest[]>([]);
-
+  
   useEffect(() => {
     async function handleUserData() {
       const response = await api.get('/interesse/consultar');
-  
-      console.log(response.data);
 
       setInterests(response.data);
+
     }
 
     handleUserData();
@@ -38,7 +39,7 @@ const AboutUser: React.FC = () => {
       <Body>
         <AboutUserImgArea>
           <div>
-            <img src="" alt="Gabriel Souza"/>
+            <img src={Profile} alt="Gabriel Souza"/>
             <strong>Gabriel Souza</strong>
             <p>18, Belford Roxo, RJ</p>
           </div>
@@ -46,12 +47,12 @@ const AboutUser: React.FC = () => {
         <AboutDataContainer>
           <PersonData >
             <strong>Dados Pessoais</strong>
-              <p>Idade:</p>
-              <p>Gênero:</p>
-              <p>Nacionalidade:</p>
-              <p>Autodeclaração:</p>
-              <p>Estado Civil:</p>
-              <p>Possui Filhos:</p>
+              <p>Idade: 18 anos</p>
+              <p>Gênero: Masculino</p>
+              <p>Nacionalidade: Brasileiro</p>
+              <p>Autodeclaração: Preto</p>
+              <p>Estado Civil: Solteiro</p>
+              <p>Possui Filhos: Não</p>
           </PersonData>
 
           <PersonAdress>
@@ -67,9 +68,9 @@ const AboutUser: React.FC = () => {
 
           <SocialNetworks>
             <strong>Redes Sociais</strong>
-              <p>LinkedIn:</p>
-              <p>Instagram:</p>
-              <p>Facebook:</p>
+              <p>LinkedIn: https://www.LinkedIn.com/gabrielsouza</p>
+              <p>Instagram:  https://www.Instagran.com/gabrielsouza</p>
+              <p>Facebook:  https://www.facebook.com/gabrielsouza</p>
           </SocialNetworks>
 
           <Interests>
@@ -85,9 +86,9 @@ const AboutUser: React.FC = () => {
 
           <Langueges>
             <strong>Idiomas</strong>
-              <p>Ingles:</p>
-              <p>Espanhol:</p>
-              <p>Português:</p>
+              <p>Ingles: Intermediário</p>
+              <p>Espanhol: Básico </p>
+              <p>Português: FLueênte</p>
           </Langueges>
         </AboutDataContainer>
       </Body>
